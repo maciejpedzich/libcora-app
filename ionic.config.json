@@ -1,0 +1,8 @@
+{
+  "name": "libcora-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "a9364ccd"
+}
