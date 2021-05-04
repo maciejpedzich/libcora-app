@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@capacitor/core": "2.4.7",
+    "@capacitor/geolocation": "^0.4.4",
+    "@capacitor/storage": "^0.3.7",
     "@ionic/pwa-elements": "^3.0.2",
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
