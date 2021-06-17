@@ -26,7 +26,7 @@ import {
 } from '@ionic/vue';
 
 export default {
-  name: 'Page',
+  name: 'IonicPageWrapper',
   props: ['title'],
   components: {
     IonPage,
