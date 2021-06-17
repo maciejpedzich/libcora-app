@@ -1,7 +1,7 @@
 <template>
   <IonApp>
     <IonSplitPane content-id="main-content">
-      <Menu />
+      <SideMenu />
       <ion-router-outlet id="main-content"></ion-router-outlet>
     </IonSplitPane>
   </IonApp>
@@ -11,7 +11,7 @@
 import { defineComponent, onMounted, reactive } from 'vue';
 import { IonApp, IonSplitPane, IonRouterOutlet } from '@ionic/vue';
 
-import Menu from '@/components/ui/Menu.vue';
+import SideMenu from '@/components/ui/SideMenu.vue';
 import useAuthState from '@/composables/useAuthState';
 import sendAuthRequest from '@/utils/sendAuthRequest';
 import AuthState from './types/AuthState';
@@ -22,7 +22,7 @@ export default defineComponent({
     IonApp,
     IonSplitPane,
     IonRouterOutlet,
-    Menu
+    SideMenu
   },
   setup() {
     const {
