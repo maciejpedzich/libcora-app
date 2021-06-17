@@ -5,6 +5,7 @@ import router from './router';
 import { IonicVue } from '@ionic/vue';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
+import IonicPageWrapper from '@/components/ui/IonicPageWrapper.vue';
 import initAxios from './utils/initAxios';
 
 /* Core CSS required for Ionic components to work properly */
@@ -29,6 +30,8 @@ import './theme/variables.css';
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
+
+app.component('IonicPageWrapper', IonicPageWrapper);
 
 router.isReady().then(() => {
   app.mount('#app');
