@@ -1,4 +1,5 @@
 export default interface UserModel {
+  id?: string;
   firstname?: string;
   lastname?: string;
   email: string;
@@ -7,4 +8,5 @@ export default interface UserModel {
   bio?: string;
   favouriteGenres?: string[];
   location?: string;
+  avatarUrl?: string;
 }
