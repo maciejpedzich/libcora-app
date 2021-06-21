@@ -1,5 +1,5 @@
 <template>
-  <Page title="Register">
+  <IonicPageWrapper title="Register">
     <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col class="ion-margin-end">
@@ -56,7 +56,7 @@
     <ion-button color="tertiary" @click="register">
       Create account
     </ion-button>
-  </Page>
+  </IonicPageWrapper>
 </template>
 
 <script lang="ts">
@@ -77,7 +77,6 @@ import {
   IonButton
 } from '@ionic/vue';
 
-import Page from '@/components/ui/Page.vue';
 import { BOOK_GENRES } from '@/constants';
 import UserModel from '@/types/UserModel';
 import useObtainLocation from '@/composables/useObtainLocation';
@@ -89,7 +88,6 @@ import displayToastUtil from '@/utils/displayToast';
 export default defineComponent({
   name: 'AuthRegister',
   components: {
-    Page,
     IonGrid,
     IonRow,
     IonCol,
