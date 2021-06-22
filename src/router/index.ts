@@ -18,6 +18,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/auth/log-in',
     name: 'LogIn',
     component: () => import('../views/auth/LogIn.vue')
+  },
+  {
+    path: '/your-matches',
+    name: 'UserMatches',
+    component: () => import('../views/UserMatches.vue')
   }
 ];
 

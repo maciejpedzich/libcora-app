@@ -86,7 +86,7 @@ export default defineComponent({
       },
       {
         title: 'Your matches',
-        url: '/',
+        url: '/your-matches',
         icon: heartHalf,
         authRequired: true
       },
