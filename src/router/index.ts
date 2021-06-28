@@ -23,6 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/your-matches',
     name: 'UserMatches',
     component: () => import('../views/UserMatches.vue')
+  },
+  {
+    path: '/chat',
+    name: 'ChatContacts',
+    component: () => import('../views/chat/Contacts.vue')
   }
 ];
 

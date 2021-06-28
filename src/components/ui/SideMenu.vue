@@ -48,7 +48,6 @@ import {
   home,
   heartHalf,
   chatbubbles,
-  person,
   logOut,
   logIn,
   personAdd
@@ -92,14 +91,8 @@ export default defineComponent({
       },
       {
         title: 'Chat',
-        url: '/',
+        url: '/chat',
         icon: chatbubbles,
-        authRequired: true
-      },
-      {
-        title: 'Your profile',
-        url: '/',
-        icon: person,
         authRequired: true
       },
       {
