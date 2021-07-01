@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import { IonApp, IonSplitPane, IonRouterOutlet } from '@ionic/vue';
 
 import SideMenu from '@/components/ui/SideMenu.vue';
@@ -35,7 +35,7 @@ export default defineComponent({
       userId
     } = useAuthState();
 
-    onMounted(async () => {
+    const restartRefreshTimeout = async () => {
       await loadState();
 
       if (isLoggedIn.value) {
@@ -55,7 +55,9 @@ export default defineComponent({
         await setState(state);
         await saveState();
       }
-    });
+    };
+
+    restartRefreshTimeout();
   }
 });
 </script>

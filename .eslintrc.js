@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
+  extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
     '@vue/typescript/recommended'
@@ -16,6 +16,12 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-deprecated-slot-attribute': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'vue/valid-v-slot': [
+      'error',
+      {
+        allowModifiers: false
+      }
+    ]
   },
   overrides: [
     {
@@ -28,4 +34,4 @@ module.exports = {
       }
     }
   ]
-}
+};

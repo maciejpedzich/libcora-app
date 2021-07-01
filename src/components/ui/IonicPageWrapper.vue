@@ -8,13 +8,18 @@
         <ion-title>{{ title }}</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <slot></slot>
+    <ion-content>
+      <slot class="ion-padding"></slot>
+      <div slot="fixed" id="fixed">
+        <slot name="fixed"></slot>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
+
 import {
   IonPage,
   IonButtons,
@@ -25,7 +30,7 @@ import {
   IonContent
 } from '@ionic/vue';
 
-export default {
+export default defineComponent({
   name: 'IonicPageWrapper',
   props: ['title'],
   components: {
@@ -37,5 +42,12 @@ export default {
     IonToolbar,
     IonContent
   }
-};
+});
 </script>
+
+<style scoped>
+#fixed {
+  width: 100%;
+  bottom: 0;
+}
+</style>

@@ -5,12 +5,12 @@
       <ion-card-header>
         <ion-grid class="ion-no-padding">
           <ion-row>
-            <ion-col size="2">
+            <ion-col size="1">
               <ion-thumbnail>
                 <img :src="firstMatchingUser?.avatarUrl" />
               </ion-thumbnail>
             </ion-col>
-            <ion-col size="10">
+            <ion-col size="11">
               <ion-card-title>
                 {{ matchingUserFullname }}
               </ion-card-title>
