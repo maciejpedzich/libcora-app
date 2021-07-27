@@ -10,6 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@capacitor/camera": "^1.0.3",
     "@capacitor/core": "2.4.7",
     "@capacitor/geolocation": "^0.4.4",
     "@capacitor/storage": "^0.3.7",
@@ -20,14 +21,19 @@
     "@vuelidate/validators": "^2.0.0-alpha.13",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "cropperjs": "^1.5.12",
     "date-fns": "^2.21.3",
+    "mime": "^2.5.2",
     "socket.io-client": "^4.1.2",
     "vue": "^3.0.0-0",
+    "vue-cropperjs": "^5.0.0",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@capacitor/cli": "2.4.7",
     "@types/jest": "^24.0.19",
+    "@types/mime": "^2.0.3",
+    "@types/vue-cropperjs": "^4.1.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",

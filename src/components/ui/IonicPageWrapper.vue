@@ -9,7 +9,9 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <slot class="ion-padding"></slot>
+      <div class="ion-padding">
+        <slot name="default"></slot>
+      </div>
       <div slot="fixed" id="fixed">
         <slot name="fixed"></slot>
       </div>

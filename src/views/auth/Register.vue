@@ -53,15 +53,44 @@
     >
       {{ locationBtnText }}
     </ion-button>
-    <ion-button color="tertiary" @click="register">
-      Create account
+    <ion-button
+      v-if="imageDataUrl.length === 0"
+      class="ion-margin-vertical"
+      fill="outline"
+      expand="block"
+      @click="takePhoto"
+    >
+      Take a photo
+    </ion-button>
+    <div v-else>
+      <vue-cropper
+        v-if="!imageUploaded"
+        ref="cropper"
+        :viewMode="3"
+        :src="imageDataUrl"
+        :aspectRatio="1 / 1"
+        :cropBoxResizable="false"
+        dragMode="move"
+      ></vue-cropper>
+      <ion-button
+        class="ion-margin-vertical"
+        fill="outline"
+        expand="block"
+        :color="uploadImageBtnColour"
+        :disabled="imageUploaded"
+        @click="uploadImage"
+      >
+        {{ uploadImageBtnText }}
+      </ion-button>
+    </div>
+    <ion-button color="tertiary" expand="block" @click="register">
+      Create an account
     </ion-button>
   </IonicPageWrapper>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { defineComponent } from 'vue';
 
 import {
   IonGrid,
@@ -77,13 +106,12 @@ import {
   IonButton
 } from '@ionic/vue';
 
-import { BOOK_GENRES } from '@/constants';
-import UserModel from '@/types/UserModel';
-import useObtainLocation from '@/composables/useObtainLocation';
+import VueCropper from 'vue-cropperjs';
+import 'cropperjs/dist/cropper.css';
 
-import sendAuthRequest from '@/utils/sendAuthRequest';
-import determineErrorMessage from '@/utils/determineErrorMessage';
-import displayToastUtil from '@/utils/displayToast';
+import useRegisterUser from '@/composables/useRegisterUser';
+import useObtainLocation from '@/composables/useObtainLocation';
+import useTakePhoto from '@/composables/useTakePhoto';
 
 export default defineComponent({
   name: 'AuthRegister',
@@ -98,48 +126,18 @@ export default defineComponent({
     IonSelect,
     IonSelectOption,
     IonLabel,
-    IonButton
+    IonButton,
+    VueCropper
   },
   setup() {
-    const router = useRouter();
-    const user = reactive<UserModel>({
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: '',
-      dob: '',
-      bio: '',
-      favouriteGenres: [],
-      location: ''
-    });
-    const genres = ref<string[]>(BOOK_GENRES);
-
-    const {
-      locationObtained,
-      locationBtnColour,
-      locationBtnText,
-      obtainLocation
-    } = useObtainLocation(user);
-
-    const register = async () => {
-      try {
-        await sendAuthRequest('/auth/register', user);
-
-        displayToastUtil('success', `Welcome to Libcora, ${user.firstname}!`);
-        router.push('/');
-      } catch (error) {
-        displayToastUtil('danger', determineErrorMessage(error));
-      }
-    };
+    const { user, genres, register } = useRegisterUser();
 
     return {
       user,
       genres,
-      obtainLocation,
-      locationObtained,
-      locationBtnColour,
-      locationBtnText,
-      register
+      register,
+      ...useObtainLocation(user),
+      ...useTakePhoto(user)
     };
   }
 });
